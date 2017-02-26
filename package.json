@@ -65,6 +65,7 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
+    "sw-precache": "^5.0.0",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.1",
@@ -73,7 +74,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "build": "NODE_ENV=production webpack -p --progress  --config ./webpack.production.config.js --bail",
+    "build": "NODE_ENV=production webpack -p --progress  --config ./webpack.production.config.js --bail && sw-precache --config=sw-precache-config.js",
     "dev": "npm i && NODE_ENV=development node server.js"
   },
   "repository": {
