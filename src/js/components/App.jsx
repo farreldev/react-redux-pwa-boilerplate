@@ -18,6 +18,10 @@ export default CSSModules(class extends Component {
     componentWillMount () {
         console.log('get api')
     }
+    componentDidMount () {
+        this.props.getInternList()
+        this.props.router.push('/dashboard')
+    }
     render () {
         return (
             <StyleRoot>
@@ -42,10 +46,10 @@ export default CSSModules(class extends Component {
                         full='horizontal'
                         colorIndex='light-1'>
                         <Link to={`/dashboard`}>
-                            dashboard
-                        </Link>&nbsp;&nbsp;&nbsp;
+                            總版dashboard
+                        </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Link to={`/favorite`}>
-                            favorite
+                            心願單favorite
                         </Link>
                       </Box>
 
@@ -60,7 +64,6 @@ export default CSSModules(class extends Component {
                         full='horizontal'
                         colorIndex='light-1'>
                         {this.props.children}
-                        <h1 onClick={this.getInternList}>get</h1>
                       </Box>
                       <Box direction='row'
                         justify='start'
