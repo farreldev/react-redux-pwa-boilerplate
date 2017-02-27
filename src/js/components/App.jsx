@@ -8,6 +8,16 @@ import Box from 'grommet/components/Box'
 
 @Radium
 export default CSSModules(class extends Component {
+    constructor (props) {
+        super(props)
+        this.getInternList = this.getInternList.bind(this)
+    }
+    getInternList () {
+        this.props.getInternList()
+    }
+    componentWillMount () {
+        console.log('get api')
+    }
     render () {
         return (
             <StyleRoot>
@@ -50,6 +60,7 @@ export default CSSModules(class extends Component {
                         full='horizontal'
                         colorIndex='light-1'>
                         {this.props.children}
+                        <h1 onClick={this.getInternList}>get</h1>
                       </Box>
                       <Box direction='row'
                         justify='start'

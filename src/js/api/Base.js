@@ -1,32 +1,34 @@
 import fetch from 'isomorphic-fetch'
-import urlJoin from 'url-join'
+import urlTool from 'url'
+import uj from 'url-join'
 import qs from 'query-string'
 import { HOST, VERSION } from './Config'
 
-const combinePayload = (res: Promise, payload?: { [key: string]: any }) => {
-    return Promise.resolve(
-        res.then((r) => ({
+const combinePayload = (res, payload) => Promise.resolve(
+        res.then(r => ({
             ...r,
-            payload
-        }))
+            request: {
+                ...payload
+            }
+        })),
     )
-}
 
-export default (url: string, options?: { [key: string]: any }={}) => {
-    let URL = urlJoin(HOST, VERSION, url)
-    let body = options.body || {}
-    options.credentials = 'include'
-    const element = document.createElement('a')
-    element.href = URL
-    body = Object.assign(body, qs.parse(element.search))
-    if (!options.method || options.method.toLowerCase() === 'get') {
-        URL = `${element.href.replace(element.search, '')}?${qs.stringify(body)}`
+export default (url, options = {}) => {
+    let u = uj(HOST, VERSION, url)
+    let opt = { ...options }
+    const { body } = options
+    const urlObject = urlTool.parse(u)
+    if (!opt.method || opt.method.toLowerCase() === 'get') {
+        urlObject.query = { ...qs.parse(urlObject.query), ...body }
+        u = urlTool.format(urlObject)
+        delete opt.body
     }
-    return fetch(URL, options).then((res) => {
+    opt = { ...opt, credential: 'include' }
+    return fetch(u, opt).then((res) => {
+        const payload = combinePayload(res.json(), body)
         if (res.status >= 200 && res.status < 300) {
-            return combinePayload(res.json(), body)
-        } else {
-            return Promise.reject(combinePayload(res.json(), body))
+            return payload
         }
+        return Promise.reject(payload)
     })
 }

@@ -9,11 +9,11 @@ function configureStore () {
     const middleware = [thunk, promiseMiddleware]
 
     const config = {
-        apiKey: 'AIzaSyDBaa3EU9oHINKc4iVzqG8TfIcKvoUk3KM',
-        authDomain: 'sat-transtable.firebaseapp.com',
-        databaseURL: 'https://sat-transtable.firebaseio.com',
-        storageBucket: 'sat-transtable.appspot.com',
-        messagingSenderId: '564068329530'
+        apiKey: "AIzaSyAXmubiz-Iu_Jgz6RQQTUFHouzU6M4GzOc",
+        authDomain: "internlens-3c5b7.firebaseapp.com",
+        databaseURL: "https://internlens-3c5b7.firebaseio.com",
+        storageBucket: "internlens-3c5b7.appspot.com",
+        messagingSenderId: "892753168254"
     }
 
     const finalCreateStore = compose(

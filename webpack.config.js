@@ -22,10 +22,12 @@ module.exports = {
             'src': path.join(__dirname, './src'),
             'containers': path.join(__dirname, './src/js/containers'),
             'components': path.join(__dirname, './src/js/components'),
-            'js': path.join(__dirname, './src/js')
+            'js': path.join(__dirname, './src/js'),
+            jszip: 'xlsx/jszip.js'
         }
     },
     module: {
+        noParse: [/jszip.js$/],
         preLoaders: [
             {
                 test: /\.jsx?$/,
@@ -94,5 +96,11 @@ module.exports = {
             template: 'src/index.ejs',
             inject: true
         })
+    ],
+    node: {
+      fs: 'empty'
+    },
+    externals: [
+        { "./cptable": "var cptable" }
     ]
 }
