@@ -9,11 +9,11 @@ function configureStore () {
     const middleware = [thunk, promiseMiddleware]
 
     const config = {
-        apiKey: "AIzaSyAXmubiz-Iu_Jgz6RQQTUFHouzU6M4GzOc",
-        authDomain: "internlens-3c5b7.firebaseapp.com",
-        databaseURL: "https://internlens-3c5b7.firebaseio.com",
-        storageBucket: "internlens-3c5b7.appspot.com",
-        messagingSenderId: "892753168254"
+        apiKey: 'AIzaSyAXmubiz-Iu_Jgz6RQQTUFHouzU6M4GzOc',
+        authDomain: 'internlens-3c5b7.firebaseapp.com',
+        databaseURL: 'https://internlens-3c5b7.firebaseio.com',
+        storageBucket: 'internlens-3c5b7.appspot.com',
+        messagingSenderId: '892753168254'
     }
 
     const finalCreateStore = compose(

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
+// import Truncate from 'react-truncate'
 
 import Box from 'grommet/components/Box'
 import Card from 'grommet/components/Card'
@@ -44,25 +45,16 @@ export default CSSModules(class extends Component {
                     </Menu> */}
                   </Box>
                 </Header>
-
-                <Card heading='均一教育平台'
-                    description='我是明恩我超屌'
-                    description='我是明ㄉ恩我超屌'
-                    headingStrong={false}
-                    link={<Anchor href='#'
-                    label='查看心得全文' />} />
-                <Card heading='均一教育平台'
-                    description='我是明恩我超屌'
-                    description='我是明ㄉ恩我超屌'
-                    headingStrong={false}
-                    link={<Anchor href='#'
-                    label='查看心得全文' />} />
-                <Card heading='均一教育平台'
-                    description='我是明恩我超屌'
-                    description='我是明ㄉ恩我超屌'
-                    headingStrong={false}
-                    link={<Anchor href='#'
-                    label='查看心得全文' />} />
+                {
+                    this.props.Intern.list.map((intern, id) =>
+                        <Card key={id} heading={intern['你之前去哪實習呢？']}
+                            // description={<Truncate lines={100} ellipsis={<span>...</span>}>{intern['可以跟我們分享更多實際實習生訓練制度、學習方面心得？(好、壞皆可)']}</Truncate>}
+                            description={intern['可以跟我們分享更多實際實習生訓練制度、學習方面心得？(好、壞皆可)']}
+                            headingStrong={false}
+                            link={<Anchor href='#'
+                            label='查看心得全文' />} />
+                    )
+                }
             </div>
         )
     }
