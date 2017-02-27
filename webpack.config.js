@@ -17,7 +17,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx', '.json', '.scss'],
         alias: {
             'src': path.join(__dirname, './src'),
             'containers': path.join(__dirname, './src/js/containers'),
@@ -42,8 +42,25 @@ module.exports = {
                 include: path.join(__dirname, 'src/')
             },
             {
+                test: /\.scss$/,
+                loader: 'style!css!sass?outputStyle=expanded&' +
+                    'includePaths[]=' +
+                    (encodeURIComponent(
+                    path.resolve(process.cwd(), './node_modules')
+                    )) +
+                    '&includePaths[]=' +
+                    (encodeURIComponent(
+                        path.resolve( process.cwd(),
+                        './node_modules/grommet/node_modules'))
+                    )
+            },
+            {
                 test: /\.sass$/, loader: 'style!css!sass'
             },
+            // {
+            //     test: /\.scss$/,
+            //     loader: 'style-loader!css-loader!sass-loader'
+            // },
             {
                 test: /\.css$/, loader: 'style!css'
             },

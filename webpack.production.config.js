@@ -24,7 +24,7 @@ module.exports = {
         progress: true
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx', '.json', '.scss'],
         alias: {
             'src': path.join(__dirname, './src'),
             'containers': path.join(__dirname, './src/js/containers'),
@@ -47,6 +47,10 @@ module.exports = {
                     'style-loader',
                     'css-loader!sass-loader'
                 )
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
             },
             {
                 test: /\.styl$/,

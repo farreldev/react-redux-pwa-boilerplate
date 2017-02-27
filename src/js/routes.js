@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 import store from './stores/Store'
 import { syncHistoryWithStore } from 'react-router-redux'
 import Containers from './containers'
@@ -11,7 +11,6 @@ export default class Root extends Component {
         return (
             <Router history={history}>
                 <Route path="/" component={Containers.App} >
-                    <IndexRoute component={Containers.App} />
                     <Route path="dashboard" component={Containers.pages.dashboard.Base} />
                     <Route path="favorite" component={Containers.pages.favorite.wishList} />
                 </Route>

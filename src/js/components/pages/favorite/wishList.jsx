@@ -6,7 +6,9 @@ export default CSSModules(class extends Component {
     }
     render () {
         return (
-            <div>wishList</div>
+            <div>
+                Wish List
+            </div>
         )
     }
 })

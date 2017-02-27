@@ -6,8 +6,10 @@
   "dependencies": {
     "file-loader": "^0.9.0",
     "firebase": "^3.6.10",
+    "grommet": "^1.2.1",
     "history": "^4.3.0",
     "immutable": "^3.8.1",
+    "inuit-defaults": "^0.2.3",
     "json-beautify": "^1.0.1",
     "json-loader": "^0.5.4",
     "moment": "^2.17.1",
@@ -24,6 +26,7 @@
     "redux-promise": "^0.5.3",
     "redux-react-firebase": "^2.5.1",
     "redux-thunk": "^2.1.0",
+    "remark-parse": "^3.0.0",
     "url-join": "^1.1.0",
     "url-loader": "^0.5.7"
   },
