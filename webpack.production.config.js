@@ -24,7 +24,7 @@ module.exports = {
         progress: true
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json', '.scss'],
+        extensions: ['', '.js', '.jsx', '.json'],
         alias: {
             'src': path.join(__dirname, './src'),
             'containers': path.join(__dirname, './src/js/containers'),

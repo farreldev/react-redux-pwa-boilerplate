@@ -11,8 +11,6 @@ export default class Root extends Component {
         return (
             <Router history={history}>
                 <Route path="/" component={Containers.App} >
-                    <Route path="dashboard" component={Containers.pages.dashboard.Base} />
-                    <Route path="favorite" component={Containers.pages.favorite.wishList} />
                 </Route>
             </Router>
         )

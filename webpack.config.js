@@ -17,17 +17,15 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json', '.scss'],
+        extensions: ['', '.js', '.jsx', '.json'],
         alias: {
             'src': path.join(__dirname, './src'),
             'containers': path.join(__dirname, './src/js/containers'),
             'components': path.join(__dirname, './src/js/components'),
-            'js': path.join(__dirname, './src/js'),
-            jszip: 'xlsx/jszip.js'
+            'js': path.join(__dirname, './src/js')
         }
     },
     module: {
-        noParse: [/jszip.js$/],
         preLoaders: [
             {
                 test: /\.jsx?$/,
@@ -44,25 +42,12 @@ module.exports = {
                 include: path.join(__dirname, 'src/')
             },
             {
-                test: /\.scss$/,
-                loader: 'style!css!sass?outputStyle=expanded&' +
-                    'includePaths[]=' +
-                    (encodeURIComponent(
-                    path.resolve(process.cwd(), './node_modules')
-                    )) +
-                    '&includePaths[]=' +
-                    (encodeURIComponent(
-                        path.resolve( process.cwd(),
-                        './node_modules/grommet/node_modules'))
-                    )
-            },
-            {
                 test: /\.sass$/, loader: 'style!css!sass'
             },
-            // {
-            //     test: /\.scss$/,
-            //     loader: 'style-loader!css-loader!sass-loader'
-            // },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
+            },
             {
                 test: /\.css$/, loader: 'style!css'
             },
@@ -96,11 +81,5 @@ module.exports = {
             template: 'src/index.ejs',
             inject: true
         })
-    ],
-    node: {
-      fs: 'empty'
-    },
-    externals: [
-        { "./cptable": "var cptable" }
     ]
 }

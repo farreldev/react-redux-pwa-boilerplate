@@ -7,7 +7,7 @@ import DevTools from '../containers/DevTools'
 
 function configureStore () {
     const middleware = [thunk, promiseMiddleware]
-
+    // change to your Firebase config
     const config = {
         apiKey: 'AIzaSyAXmubiz-Iu_Jgz6RQQTUFHouzU6M4GzOc',
         authDomain: 'internlens-3c5b7.firebaseapp.com',
